@@ -81,6 +81,7 @@
 //         for (int i = 0; i < alphabet.Length; i++)
 //             {
 //                 word[length] = alphabet[i];
+                
 //                 FindWords(alphabet, word, length + 1);
 //             }
 // }
@@ -123,5 +124,79 @@
 // System.Console.WriteLine(start);
 
 // ********************************************************************
+// Задача 65: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// M = 1; N = 5 -> "1, 2, 3, 4, 5"
+// M = 4; N = 8 -> "4, 6, 7, 8"
+
+// int InputNum(string message)
+// {
+//     Console.Write(message);
+//     return Convert.ToInt32(Console.ReadLine()!);
+// }
+
+// // string PrintNumbers(int start, int end)
+// // {
+// // if (start == end) return start.ToString();
+// // return (start + " " + PrintNumbers(start + 1, end));
+// // }
 
 
+// void PrintNumbers(int start, int end)
+// {
+//     if (start > end) return;
+//     Console.Write(start + " ");
+//     PrintNumbers(++start, end);
+// }
+
+// int start = InputNum("Введите M: ");
+// int end = InputNum("Введите N: ");
+
+// PrintNumbers(start, end);
+
+
+
+// ********************************************************************
+// Дмитрий Тихонов: Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
+// 453 -> 12
+// 45 -> 9
+
+// int InputNum (string message)
+// {
+// Console.Write(message);
+// return Convert.ToInt32(Console.ReadLine()!);
+// }
+
+// int SumDigits(int num)
+// {
+// if (num == 0) return 0;
+// return num % 10 + SumDigits(num / 10);
+// }
+
+// int number = InputNum("Введите целое число: ");
+// int sum = SumDigits(number);
+// System.Console.WriteLine(sum);
+
+// ********************************************************************
+// Задача 69: Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B с помощью рекурсии.
+// A = 3; B = 5 -> 243 (3⁵)
+// A = 2; B = 3 -> 8
+// С учётом отрицательных степеней - сложный вариант.
+
+int InputNum(string message)
+{
+Console.Write(message);
+return Convert.ToInt32(Console.ReadLine()!);
+}
+
+double StepenNumber(int a, int b)
+{
+if (b == 0) return 1;
+if (b > 0)
+{
+return a * StepenNumber(a, b - 1);
+}
+return Math.Round(1 / (a * StepenNumber(a, -b - 1)), 3);
+}
+int a = InputNum("Введите целое число A: ");
+int b = InputNum("Введите целое число B: ");
+Console.WriteLine(StepenNumber(a, b));
